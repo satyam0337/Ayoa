@@ -23,37 +23,29 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
+import { useNavigate } from 'react-router-dom';
+
+
+
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const navigate = useNavigate();
+
 
   return (
-    <Box>
-      <Flex
+    <Box  position="sticky" >
+      <Flex 
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+
         align={'center'}>
-        <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
+        
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
          
-          <Image  alignItems={useBreakpointValue({ base: 'center', md: 'left' })} w={"40"} h={"20"} paddingLeft="3" m={"-2"} ml={"0.5"} src="https://www.ayoa.com/wp-content/themes/droptaskreload/navigation/images/ayoa_bluenavlogo.svg" alt="ayao-logo" />  
+          <Image  onClick={() => navigate("/")} alignItems={useBreakpointValue({ base: 'center', md: 'left' })} w={"40"} h={"20"} paddingLeft="3" m={"-2"} ml={"0.5"} src="https://www.ayoa.com/wp-content/themes/droptaskreload/navigation/images/ayoa_bluenavlogo.svg" alt="ayao-logo" />  
 
           
         </Flex>
@@ -66,27 +58,38 @@ export default function WithSubnavigation() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          </Button>
-          <Button
+        
+          <Button onClick={() => navigate("/Login")}
             display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
+            fontSize={'md'}
+            fontWeight={400}
+            color={'5c5c5c'}
+            bg={'#eef3f5'}
+            borderRadius='full'
+            borderBottom={'1px solid #eef3f5'}
+                                                                 
             _hover={{
-              bg: 'pink.300',
+              bg: 'white',
+              border:'1px solid #00d1ff'
             }}>
-            Sign Up
+                                                                        Log In
           </Button>
+
         </Stack>
+
+        <Flex
+          flex={{ base: 1, md: 'auto' }}
+       
+          display={{ base: 'flex', md: 'none' }}>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
+          />
+        </Flex>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -110,12 +113,15 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
+                fontSize={'md'}
+                fontWeight={'400}'}
+                // fontFamily='sans-serif'
+                
+                color={'#555555'}
                 _hover={{
                   textDecoration: 'none',
-                  color: linkHoverColor,
+                  color: '#1db1fb',
+                  borderBottom:'2px solid #1db1fb'
                 }}>
                 {navItem.label}
               </Link>
@@ -143,10 +149,10 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+const DesktopSubNav = ({href, label }) => {
   return (
     <Link
-      href={href}
+    href={href}
       role={'group'}
       display={'block'}
       p={2}
@@ -157,10 +163,9 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
+            fontWeight={5400}>
             {label}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -190,7 +195,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -205,7 +210,7 @@ const MobileNavItem = ({ label, children, href }) => {
           textDecoration: 'none',
         }}>
         <Text
-          fontWeight={600}
+          fontWeight={6400}
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
         </Text>
@@ -241,49 +246,93 @@ const MobileNavItem = ({ label, children, href }) => {
 };
 
 interface NavItem {
-  label: string;
-  subLabel?: string;
+ 
   children?: Array<NavItem>;
   href?: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Home',
+    href:'/',
+   
+  
+  },
+  {
+    
+    label: 'Products',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
+        label: 'Ayoa Mind Map',
+        href:'/MindMap',
+       
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Ayoa Task'
+       
       },
+      {
+        label: 'Ayoa Ultimate'
+      }
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Neurodiversity',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
+        label: 'DSA '
       },
       {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
+        label: 'Software'
       },
+      {
+        label: 'Workplace'
+      },
+      {
+        label:'Education'
+      }
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'Resources',
+    children: [
+      {
+        label: 'Ayoa Blog'
+      },
+      {
+        label: 'Press & Articles'
+      },
+      {
+        label: 'Keynote Speaker'
+      },
+      {
+        label:'Our Partners'
+      },
+      {
+        label:'Help Center'
+      }
+    ],
   },
   {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'Price',
+    href:'/pricing',
+    
   },
+  {
+    label:' EN ⮟',
+    children: [
+      {
+        label: 'FR'
+      },
+      {
+        label: 'CR'
+      },
+      {
+        label: 'JP'
+      },
+      {
+        label:'KR'
+      }
+    ],
+  }
 ];

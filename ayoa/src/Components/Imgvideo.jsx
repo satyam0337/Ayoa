@@ -8,4 +8,3 @@ const Imgvideo = () => {
     )
 }
 
-export default Imgvideo

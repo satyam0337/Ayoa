@@ -3,6 +3,7 @@ import React from 'react'
 import WithSubnavigation from './Navbar'
 import Getstarted from './Getstarted'
 import Imgvideo from './Imgvideo'
+
 const Home = () => {
   return (
     <Box alignItems="center"  >
@@ -31,47 +32,6 @@ const Home = () => {
       <Imgvideo />
 
 
-{/* Card Section  */}
-
-      <Center alignItems={"center"} w={{lg:'5xl',xl:'5xl',md:'3xl',sm:'3xl'}} m="auto" mt={'10'} dir={{md:'row',xl:'row'}}>
-        <Stack alignItems={"center"} gap="5">
-          <Box>
-            <Image src='https://www.ayoa.com/wp-content/uploads/2018/05/cbsnews_logo.png' alt="cardpic" />
-          </Box>
-          <Box textAlign={"center"} >
-            <Text fontSize={"16px"} fontWeight={"thin"} fontFamily={"sans-serif"}  >“The most unique twist on task management I’ve ever seen” </Text>
-
-          </Box>
-        </Stack >
-        <Stack alignItems={"center"} gap="5">
-          <Box>
-            <Image src='https://www.ayoa.com/wp-content/uploads/2018/05/techcrunch-logo.png' alt="cardpic" />
-          </Box>
-          <Box textAlign={"center"} >
-            <Text fontSize={"16px"} fontWeight={"thin"} fontFamily={"sans-serif"} >“Visually-oriented people – this layout boosts productivity” </Text>
-
-          </Box>
-        </Stack >
-        <Stack alignItems={"center"} gap="5">
-          <Box>
-            <Image src='https://www.ayoa.com/wp-content/uploads/2019/09/logo-lhacker.png' alt="cardpic" />
-          </Box>
-          <Box textAlign={"center"} >
-            <Text fontSize={"16px"} fontWeight={"thin"} fontFamily={"sans-serif"} >“Turns your tasks into an awesome venn diagram” </Text>
-
-          </Box>
-        </Stack >
-        <Stack alignItems={"center"} gap="5">
-          <Box>
-            <Image src='https://www.ayoa.com/wp-content/uploads/2019/09/logo-pcworld.png' alt="cardpic" />
-          </Box>
-          <Box textAlign={"center"} >
-            <Text fontSize={"16px"} fontWeight={"thin"} fontFamily={"sans-serif"} >“A more intuitive way to manage workloads” </Text>
-
-          </Box>
-        </Stack >
-
-      </Center>
 
 
     </Box>
