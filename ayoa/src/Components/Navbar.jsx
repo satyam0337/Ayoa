@@ -149,10 +149,10 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label }) => {
+const DesktopSubNav = ({href, label }) => {
   return (
     <Link
- 
+    href={href}
       role={'group'}
       display={'block'}
       p={2}
@@ -195,7 +195,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -254,6 +254,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Home',
+    href:'/',
    
   
   },
@@ -262,7 +263,8 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Products',
     children: [
       {
-        label: 'Ayoa Mind Map'
+        label: 'Ayoa Mind Map',
+        href:'/MindMap',
        
       },
       {
@@ -313,7 +315,8 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Price',
-  
+    href:'/pricing',
+    
   },
   {
     label:' EN ⮟',

@@ -6,10 +6,13 @@ import {
     Container,
 
 } from '@chakra-ui/react';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Getstarted() {
     // const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+
 
     return (
 
@@ -56,7 +59,7 @@ export default function Getstarted() {
                     color={"white"}
                     _hover={{ bg: "#008fd5" }}
                     w={{ base: "70%", md: "50%", sm: "50%" }}
-                   
+                    onClick={() => navigate("/Signup")}
 
                 >
                     Get Started
