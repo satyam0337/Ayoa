@@ -37,7 +37,7 @@ const LogIn = () => {
            <Box ml='60px' mt='20px' >
              <Flex gap='20px'>
                 <Text fontSize='sm' fontWeight='bold'>Don't have an account? </Text>
-                <Button colorScheme='blue' variant='link' onClick={() => navigate("/signin")}>Sign Up</Button>
+                <Button colorScheme='blue' variant='link' onClick={() => navigate("/Signup")}>Sign Up</Button>
              </Flex>
            </Box>
            <Text fontSize='sm' mb='10px'>Forgot password? </Text>
