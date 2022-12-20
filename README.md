@@ -1,11 +1,13 @@
 
 
-![image](https://ayoa-com-five.vercel.app/)
+![image](https://user-images.githubusercontent.com/105915649/208597855-b573be9e-1a16-46b9-b60f-3249563c7dd4.png)
 
 
-# Fithub : Website_Clone
+
+# Ayoa : Website_Clone
 
 
+Ayoa is the original mind mapping app, pushing the boundaries of brainstorming to new levels. Get started with Ayoa and its powerful AI
 
 Speaking of the technical aspects, the site is fairly static with some features, 
 
